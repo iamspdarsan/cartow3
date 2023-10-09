@@ -24,4 +24,4 @@ Ready to supercharge your web project deployment with Spinego? Getting started i
 
 1. **Clone this Repository**:
    ```bash
-   git clone https://github.com/your-username/spinego.git
+   git clone https://github.com/iamspdarsan/spinego.git
