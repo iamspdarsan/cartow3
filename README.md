@@ -1,6 +1,6 @@
 # Spinego: Revolutionizing Web Project Deployment
 
-![Spinego Logo](link_to_your_logo.png)
+![Spinego Logo](spinego.png)
 
 Are you tired of spending hours manually creating sitemaps and robots.txt files for your web projects? Look no further! Spinego is here to transform your web development experience.
 
@@ -18,6 +18,8 @@ Spinego is a game-changing automated tool designed to simplify the often tedious
 
 - **Seamless Integration**: Whether you're using Spinego for a personal project or as part of a larger team, it effortlessly integrates into your web development workflow.
 
+- **Auto ping**: Post xml sitemap to google, bing, yahoo automatically when deployment.
+
 ## Getting Started
 
 Ready to supercharge your web project deployment with Spinego? Getting started is a breeze:
@@ -25,3 +27,11 @@ Ready to supercharge your web project deployment with Spinego? Getting started i
 1. **Clone this Repository**:
    ```bash
    git clone https://github.com/iamspdarsan/spinego.git
+
+## References
+
+- https://www.robotstxt.org/
+- https://www.sitemaps.org/protocol.html
+- https://www.w3.org/TR/NOTE-datetime
+- https://moment.github.io/luxon
+- https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
