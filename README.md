@@ -1,6 +1,6 @@
 # Spinego: Revolutionizing Web Project Deployment
 
-![Spinego Logo](spinego.png)
+![Spinego Logo](logo.png)
 
 Are you tired of spending hours manually creating sitemaps and robots.txt files for your web projects? Look no further! Spinego is here to transform your web development experience.
 
