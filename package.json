@@ -1,6 +1,6 @@
 {
   "name": "spinego",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "It's a automated tool in action to make sitemap and robot.txt for web project",
   "main": "spinego.js",
   "scripts": {
@@ -18,7 +18,9 @@
     "spinego",
     "webdev",
     "tool"
-  ],
+  ],"bin":{
+    "spinego":"./spinego.js"
+  },
   "author": "DARSAN",
   "license": "ISC",
   "bugs": {
