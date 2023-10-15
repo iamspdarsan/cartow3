@@ -1,4 +1,13 @@
 #!/usr/bin/env node
+const {
+  readdirSync,
+  statSync,
+  existsSync,
+  writeFile,
+  readFile,
+} = require("fs");
+const { join, extname } = require("path");
+const { DateTime } = require("luxon");
 module.exports = {
   fileScanner,
   sitemapGen,
@@ -9,17 +18,6 @@ const {
   loadConfiguration,
 } = require("./config");
 
-const {
-  readdirSync,
-  statSync,
-  existsSync,
-  writeFile,
-  readFile,
-} = require("fs");
-
-const { join, extname } = require("path");
-const { DateTime } = require("luxon");
-
 // Function to recursively scan a basedir and its subdirectories
 function fileScanner(
   basedir,
@@ -27,8 +25,8 @@ function fileScanner(
   metadata = { fileurl: [], mtime: [] }
 ) {
   const {
-    ignoredirs = prevconfig.ignoredirs,
-    ignorefiles = prevconfig.ignorefiles,
+    ignoredirs = prevconfig?.ignoredirs,
+    ignorefiles = prevconfig?.ignorefiles,
     tzone = "Asia/Kolkata",
   } = options;
   //ignore node moudule files
@@ -198,8 +196,8 @@ function sitemapGen(basedir, options = {}) {
 }
 
 //command line arguments
-let prevconfig = loadConfiguration()["spinego.options"];
 const args = process.argv.slice(2);
+let prevconfig = loadConfiguration()["spinego.options"];
 if (args[0] === "reinit-config") {
   reinitConfiguration();
 } else if (args[0] === "run") {
