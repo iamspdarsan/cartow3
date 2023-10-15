@@ -1,11 +1,12 @@
 {
   "name": "spinego",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "It's a automated tool in action to make sitemap and robot.txt for web project",
   "main": "spinego.js",
   "scripts": {
-    "test": "node spinego init-config",
-    "start": "node spinego.js"
+    "test": "node spinego init-config & node spinego reinit-config",
+    "start": "node spinego.js run",
+    "build": "node spinego init-config & node spinego reinit-config & node spinego.js run"
   },
   "repository": {
     "type": "git",

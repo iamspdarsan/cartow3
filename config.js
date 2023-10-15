@@ -22,8 +22,8 @@ function initconfiguration() {
     },
   };
   writeconfig(config);
-  console.log(`Configuration initiated successfully.
-  \nNow you need to run "node spinego reinit-config"`);
+  console.log(`Configuration initiated successfully.`);
+  /* \nNow you need to run "node spinego reinit-config"`); */
 }
 
 function reinitConfiguration() {
@@ -51,9 +51,9 @@ function reinitConfiguration() {
   });
   writeconfig(config);
   console.log(
-    `Configuration reinitiated.\nNow you can customize changefreq, priority for urls\nCustomize your options for best control`
+    `\nConfiguration reinitiated.\nNow you can customize changefreq, priority for urls\nCustomize your options for best control`
   );
-  console.log(`"node spinego run" to start using`);
+  /* console.log(`"node spinego run" to start using`); */
 }
 
 //configuration loader
