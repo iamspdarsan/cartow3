@@ -1,6 +1,7 @@
+#!/usr/bin/env node
 module.exports = {
   fileScanner,
-  sitemapGen
+  sitemapGen,
 };
 const {
   initconfiguration,

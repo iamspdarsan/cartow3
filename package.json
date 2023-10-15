@@ -4,7 +4,8 @@
   "description": "It's a automated tool in action to make sitemap and robot.txt for web project",
   "main": "spinego.js",
   "scripts": {
-    "test": "node spinego init-config"
+    "test": "node spinego init-config",
+    "start": "node spinego.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +19,9 @@
     "spinego",
     "webdev",
     "tool"
-  ],"bin":{
-    "spinego":"./spinego.js"
+  ],
+  "bin": {
+    "spinego": "spinego.js"
   },
   "author": "DARSAN",
   "license": "ISC",
