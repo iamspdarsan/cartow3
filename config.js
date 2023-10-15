@@ -6,12 +6,12 @@ function writeconfig(config) {
   // Convert the configuration to a string
   config = JSON.stringify(config, null, 2);
   // Write the configuration to the file
-  writeFileSync("spinego.config", config);
+  writeFileSync("spinego.conf", config);
 }
 
 //configuration loader
 function loadConfiguration() {
-  const config = "./spinego.config";
+  const config = "./spinego.conf";
   if (existsSync(config)) {
     let data = readFileSync(config, "utf-8");
     if (data.length > 0) {
@@ -27,9 +27,9 @@ function loadConfiguration() {
     process.exit(1);
   }
 }
-function filePrefrencegen(conf,preconfig) {
+function filePrefrencegen(conf, preconfig) {
   //making config for each file
-  let fileurls = fileScanner(basedir = ".",preconfig)["fileurl"];
+  let fileurls = fileScanner((basedir = "."), preconfig)["fileurl"];
   fileurls.forEach((item) => {
     conf["spinego.options"]["file_preferences"][item] = {
       changefreq: "",
@@ -51,9 +51,12 @@ function initconfiguration() {
       file_preferences: {},
     },
   };
-  config = filePrefrencegen(config,{ignoredirs:[],ignorefiles:[]});
+  config = filePrefrencegen(config, { ignoredirs: [], ignorefiles: [] });
   writeconfig(config);
-  console.log(`Configuration initiated successfully.`);
+  console.log(
+    `Configuration "./spinego.conf" initiated.\n\nNow you can customize options(domain-name, changefreq, priority, ignorefiles, etc)` +
+      `\n\nFor best control do customize the opitons\n\n!Note: run "npm run refresh" after made modification in conf file`
+  );
   /* \nNow you need to run "node spinego reinit-config"`); */
 }
 
@@ -71,10 +74,11 @@ function reinitConfiguration() {
       file_preferences: {},
     },
   };
-  config = filePrefrencegen(config,prevconfig);
+  config = filePrefrencegen(config, prevconfig);
   writeconfig(config);
   console.log(
-    `\nConfiguration reinitiated.\nNow you can customize changefreq, priority for urls\nCustomize your options for best control`
+    `Configuration reinitiated with new files\n\nRespected to exclusion options.\n\n`+
+    `Now you can build "npm run build" or reconfigure file preferences (priority,changefreq)`
   );
   /* console.log(`"node spinego run" to start using`); */
 }
