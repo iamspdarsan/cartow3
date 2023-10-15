@@ -1,5 +1,6 @@
 module.exports = {
   fileScanner,
+  sitemapGen
 };
 const {
   initconfiguration,

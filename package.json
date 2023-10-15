@@ -1,0 +1,28 @@
+{
+  "name": "spinego",
+  "version": "1.0.0",
+  "description": "It's a automated tool in action to make sitemap and robot.txt for web project",
+  "main": "spinego.js",
+  "scripts": {
+    "test": "node spinego init-config"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamspdarsan/spinego.git"
+  },
+  "keywords": [
+    "automation",
+    "sitemap",
+    "robot",
+    "xml",
+    "spinego",
+    "webdev",
+    "tool"
+  ],
+  "author": "DARSAN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iamspdarsan/spinego/issues"
+  },
+  "homepage": "https://github.com/iamspdarsan/spinego#readme"
+}
