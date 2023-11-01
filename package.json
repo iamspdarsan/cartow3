@@ -4,9 +4,8 @@
   "description": "It's a automated tool in action to make sitemap and robot.txt for web project",
   "main": "spinego.js",
   "scripts": {
-    "init":"node spinego init-config",
-    "refresh":"node spinego reinit-config",
-    "test": "node spinego init-config & node spinego.js run",
+    "init": "node spinego init-config",
+    "refresh": "node spinego fp-remap",
     "build": "node spinego.js run"
   },
   "repository": {
@@ -26,9 +25,12 @@
     "spinego": "spinego.js"
   },
   "author": "DARSAN",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/iamspdarsan/spinego/issues"
   },
-  "homepage": "https://github.com/iamspdarsan/spinego#readme"
+  "homepage": "https://github.com/iamspdarsan/spinego#readme",
+  "dependencies": {
+    "luxon": "^3.4.3"
+  }
 }

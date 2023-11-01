@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 const {
   readdirSync,
   statSync,
@@ -14,7 +13,7 @@ module.exports = {
 };
 const {
   initconfiguration,
-  reinitConfiguration,
+  rebuildFilemap,
   loadConfiguration,
 } = require("./config");
 
@@ -150,15 +149,17 @@ function filePreferencesloader(filesmetadata, file_preferences) {
     });
   } catch (error) {
     console.log(
-      `Error raised :( \nRun "node spinego reinit-config" to fix this error`
+      `Error!->Reason: New files added and FP-Map not updated\n No worry It's been fixed :)\n`
     );
     process.exit(1);
   }
   return filesmetadata;
 }
 
+let prevconfig = loadConfiguration()["spinego.options"];
 //main function
-function sitemapGen(basedir, options = {}) {
+function sitemapGen(basedir = prevconfig.basedir, options = prevconfig) {
+  rebuildFilemap();
   const {
     ignoredirs = [],
     ignorefiles = [],
@@ -197,11 +198,10 @@ function sitemapGen(basedir, options = {}) {
 
 //command line arguments
 const args = process.argv.slice(2);
-let prevconfig = loadConfiguration()["spinego.options"];
-if (args[0] === "reinit-config") {
-  reinitConfiguration();
+if (args[0] === "fp-remap") {
+  rebuildFilemap();
 } else if (args[0] === "run") {
-  sitemapGen(prevconfig.basedir, prevconfig);
+  sitemapGen();
 } else if (args[0] === "init-config") {
   initconfiguration();
 }

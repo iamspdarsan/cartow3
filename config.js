@@ -27,17 +27,20 @@ function loadConfiguration() {
     process.exit(1);
   }
 }
+
 function filePrefrencegen(conf, preconfig) {
   //making config for each file
   let fileurls = fileScanner((basedir = "."), preconfig)["fileurl"];
   fileurls.forEach((item) => {
+    const fmeta = preconfig["file_preferences"]?.[item];
     conf["spinego.options"]["file_preferences"][item] = {
-      changefreq: "",
-      priority: "",
+      changefreq: fmeta ? fmeta.changefreq : "",
+      priority: fmeta ? fmeta.priority : "",
     };
   });
   return conf;
 }
+
 function initconfiguration() {
   let config = {
     "spinego.options": {
@@ -54,13 +57,13 @@ function initconfiguration() {
   config = filePrefrencegen(config, { ignoredirs: [], ignorefiles: [] });
   writeconfig(config);
   console.log(
-    `Configuration "./spinego.conf" initiated.\n\nNow you can customize options(domain-name, changefreq, priority, ignorefiles, etc)` +
-      `\n\nFor best control do customize the opitons\n\n!Note: run "npm run refresh" after made modification in conf file`
+    `Configuration "./spinego.conf" initiated.\nNow you can customize options(domain-name, changefreq, priority, ignorefiles, etc)` +
+      `\nFor best control do customize the opitons` /* \n\n!Note: run "npm run refresh" after made modification in conf file */
   );
   /* \nNow you need to run "node spinego reinit-config"`); */
 }
 
-function reinitConfiguration() {
+function rebuildFilemap() {
   //base configuration template
   let config = {
     "spinego.options": {
@@ -77,13 +80,13 @@ function reinitConfiguration() {
   config = filePrefrencegen(config, prevconfig);
   writeconfig(config);
   console.log(
-    `Configuration reinitiated with new files\n\nRespected to exclusion options.\n\n`+
-    `Now you can build "npm run build" or reconfigure file preferences (priority,changefreq)`
+    `Filemap updated.\nRespected to exclusion option.`
+    /* `Now you can build "npm run build" or reconfigure file preferences (priority,changefreq)` */
   );
   /* console.log(`"node spinego run" to start using`); */
 }
 module.exports = {
   loadConfiguration,
   initconfiguration,
-  reinitConfiguration,
+  rebuildFilemap,
 };
