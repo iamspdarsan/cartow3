@@ -10,6 +10,7 @@ const { DateTime } = require("luxon");
 module.exports = {
   fileScanner,
   sitemapGen,
+  sitemapGenGulp,
 };
 const {
   initconfiguration,
@@ -194,6 +195,10 @@ function sitemapGen(basedir = prevconfig.basedir, options = prevconfig) {
 
   makeinXML(filesmetadata, domainName, sitemap);
   mkRobot(robotpath, sitemap, domainName);
+}
+
+function sitemapGenGulp() {
+  return Promise.resolve(sitemapGen());
 }
 
 //command line arguments
